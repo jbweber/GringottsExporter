@@ -2,8 +2,10 @@
 ## Title: Gringotts Exporter
 ## Dependencies: BagSync
 
+
 libs\LibStub\LibStub.lua
 LibBase64.lua
 LibJSON.lua
+libs\LibDeflate\LibDeflate.lua
 
 GringottsExporter.lua

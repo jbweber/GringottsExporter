@@ -1,4 +1,5 @@
 local LibBase64 = LibStub('LibBase64-1.0')
+local LibDeflate = LibStub:GetLibrary("LibDeflate")
 local LibJSON = LibStub('LibJSON-1.0')
 
 local function GringottsGetCharName()
@@ -150,7 +151,8 @@ local function GringottsPrepareResult(name)
   }
 
   local jsonResult = LibJSON.Serialize(result)
-  local b64Result = LibBase64:Encode(jsonResult)
+  local compressed = LibDeflate:CompressZlib(jsonResult)
+  local b64Result = LibBase64:Encode(compressed)
   return b64Result
 end
 
