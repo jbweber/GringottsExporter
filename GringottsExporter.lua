@@ -52,7 +52,13 @@ local function GringottsGetItemCounts(name)
     end
   end
 
-  return itemCounts
+  local result = {}
+  for k, v in pairs(itemCounts) do
+    local ic = tonumber(v, 10)
+    result[k] = ic
+  end
+
+  return result
 end
 
 local function GringottsGetItemNames(itemCounts)
